@@ -23,3 +23,36 @@ This project presents an interactive and visually engaging Power BI dashboard th
 - Power Query Editor for data cleaning
 - DAX (Data Analysis Expressions) for calculated columns and measures
 - CSV as data source
+  
+  FORMULAS USED
+  high math count = COUNTX(FILTER('StudentsPerformance','StudentsPerformance'[math score]>50),'StudentsPerformance'[math score])
+
+high reading count = COUNTX(FILTER('StudentsPerformance','StudentsPerformance'[reading score]>50),'StudentsPerformance'[reading score])
+
+high writing score = COUNTX(FILTER('StudentsPerformance','StudentsPerformance'[writing score]>50),'StudentsPerformance'[writing score])
+
+parentid = COUNTAX('StudentsPerformance','StudentsPerformance'[parental level of education])
+
+total overall score = SUMX('StudentsPerformance','StudentsPerformance'[math score]+'StudentsPerformance'[reading score]+'StudentsPerformance'[writing score]) 
+
+unique parental level = DISTINCTCOUNT('StudentsPerformance'[parental level of education])
+
+Average score = AVERAGE('StudentsPerformance'[total score])
+
+average math score = AVERAGE('StudentsPerformance'[math score])
+
+Complete prep students = CALCULATE(COUNTROWS('StudentsPerformance'),('StudentsPerformance'[test preparation course]="completed"))
+
+performance category = VAR avg_score=('StudentsPerformance'[math score]+'StudentsPerformance'[reading score]+'StudentsPerformance'[writing score])/3 RETURN IF(avg_score>90,"Excellent",IF(avg_score>75,"Good",IF(avg_score>50,"Average","Need Improvement")))
+
+Student count = COUNTROWS('StudentsPerformance')
+
+total score = ('StudentsPerformance'[math score]+'StudentsPerformance'[reading score]+'StudentsPerformance'[writing score])
+
+Unique Parent Education levels = CALCULATE(DISTINCTCOUNT('StudentsPerformance'[parental level of education]))
+
+
+
+
+
+  
